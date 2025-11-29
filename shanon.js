@@ -29,7 +29,6 @@ encode  = (text,table)=>{
   let code = [];
   for(let c of text)
    code.push(table[c])
-
  return code.join('')
 }
 
@@ -66,9 +65,28 @@ for(let bit of code){
   return text;
 }
 
+read_file_into_bytes  = (file) =>{
+  
+}
+
+input = document.createElement('input')
+input.type = 'file'
+document.body.appendChild(input)
+
+input.oninput = (e)=>{
+  let reader = new FileReader();
+  reader.onload = ()=>console.log(reader.result);
+  reader.readAsArrayBuffer(e.target.files[0]);
+}
+
+
  text = 'labas vakaras ka tu'
  table = freq(text)
  encoded = encode(text,table)
+
+
+
+
 
 /*
 
